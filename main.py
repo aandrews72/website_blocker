@@ -1,5 +1,6 @@
 import os
 import time
+import sys
 
 local = "127.0.0.1"
 
@@ -35,7 +36,7 @@ def block(duration):
 
     # Calculate the unblock time and print it 
     unblock_time = time.time() + duration * 60
-    # print unblock time with time 
+    print(f"Websites will be unblocked at {time.ctime(unblock_time)}") 
     
     # While loop to check if we've passed the unblock time, if not sleep for 5 seconds
     while time.time() < unblock_time:
@@ -44,9 +45,15 @@ def block(duration):
 
     # Once out of while loop, call the unblock function
     unblock()
-    
-block(1)
 
-
+# Check arguments with error handling    
+if len(sys.argv) == 2:
+    try:
+        duration = float(sys.argv[1])
+        block(duration)
+    except ValueError:
+        print("Invalid input. Please enter a numeric value for the duration to block the websites.")
+else:
+    print("Usage: sudo python3 main.py <duration_in_minutes>")
 
 
