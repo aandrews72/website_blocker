@@ -14,7 +14,7 @@ The CLI Website Blocker is Python3-based utility designed to improve productivit
 ## Prerequisites
 
 - Python 3.x installed on your machine.
-- Administrative access to modify your ```**/etc/hosts*``` file.
+- Administrative access to modify your ```/etc/hosts``` file.
 - MacOS or Linux operating system.
 
 
